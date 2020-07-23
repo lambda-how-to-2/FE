@@ -4,6 +4,8 @@ import Register from './components/Register';
 import Login from './components/Login';
 
 function App() {
+  const [searchBox, setSearchBox] = React.useState(true)
+
   return (
     <div className="App">
       <Switch>
@@ -11,6 +13,7 @@ function App() {
         <Route path='/login' component={Login}/>
       </Switch>
     </div>
+
   );
 }
 
