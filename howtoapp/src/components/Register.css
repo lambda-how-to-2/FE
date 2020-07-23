@@ -65,6 +65,10 @@ Input {
   color: #3E3E3E;
 }
 
+.already-member a:hover {
+  text-decoration: underline;
+}
+
 button:disabled {
   width: 322px;
   height: 59px;
