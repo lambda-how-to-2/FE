@@ -1,5 +1,7 @@
 const initialState = {
-    howToDos: []
+    isEditing: false,
+    list: [],
+    cardToEdit: {}
 }
 
 export const HowToReducer = (state = initialState, action) => {
