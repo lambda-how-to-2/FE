@@ -5,7 +5,7 @@
 
  .nav-wrapper {
     padding-top: 49px;
-   
+   z-index: 2;
 }
 
 nav {
@@ -41,7 +41,7 @@ nav {
     letter-spacing: 0px;
     color: #14B1AB;
     text-shadow: 0px 3px 3px #00000029;
-
+    text-decoration: none;
 }
 
 .menu a:hover {
@@ -77,7 +77,7 @@ nav {
      display: flex;
 }
 
-#search{
+#searchField{
     width: 100%;
     border: none;
     font-size: 21px;

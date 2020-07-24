@@ -1,15 +1,16 @@
 import React from 'react'
 import './navigation.style.css'
+import { Link, useLocation } from 'react-router-dom'
 
 
+function LoggedInNav() {
 
-function LoggedInNav({ searchBox }) {
-
+    const location = useLocation()
 
     const SearchBoxVisible = () => {
-        return searchBox ?
+        return location.pathname === '/profile' ?
             <div className="searchBox">
-                <input type="text" id="search" placeholder="Seach" />
+                <inp ut type="text" id="searchField" placeholder="Seach" />
                 <button className='searchBtn'><i class="fa fa-search"></i></button>
             </div>
             : ''
@@ -21,16 +22,16 @@ function LoggedInNav({ searchBox }) {
         <>
             <div className="nav-wrapper">
                 <nav>
-                    <h1 className="nav-logo-loggedIn">HOW2</h1>
+                    <Link className="nav-logo-loggedIn" to="/">HOW2</Link>
                     <SearchBoxVisible />
                     <div className="menu">
-                        <a href="/explorer">Explore</a>
-                        <a href="/explorer">Profile</a>
-                        <a href="/explorer">Logout</a>
+                        <Link to="/explore">Explore</Link>
+                        <Link to="/profile">Profile</Link>
+                        <Link to="/logout">Logout</Link>
                     </div>
                 </nav>
             </div>
-            {/* <hr className="hr-loggedIn" /> */}
+
         </>
     )
 }

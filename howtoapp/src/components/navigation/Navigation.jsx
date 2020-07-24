@@ -1,20 +1,20 @@
 import React from 'react'
 import './navigation.style.css'
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
-// We will use this Header for non logged in users
+
 
 function Navigation() {
     return (
         <>
             <div className="nav-wrapper">
                 <nav>
-                    <h1 className="nav-logo">HOW2</h1>
+                    <Link className="nav-logo-loggedIn" to="/">HOW2</Link>
                     <div className="menu">
-                        <a href="/explorer">Features</a>
-                        <a href="/explorer">Team</a>
-                        <a href="/explorer">login</a>
-                        <a href="/explorer">Sign Up</a>
+                        <Link to="/features">Features</Link>
+                        <Link to="/team">Team</Link>
+                        <Link to="/Login">login</Link>
+                        <Link to="signup">Sign Up</Link>
                     </div>
                 </nav>
             </div>
