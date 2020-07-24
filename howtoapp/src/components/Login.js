@@ -32,6 +32,12 @@ export default function Login(props) {
   // onSubmit function
   const formSubmit = e => {
     e.preventDefault();
+    axios.post('https://how-to-2-team-win.herokuapp.com/api/auth/login', credentials)
+    .then(response => {
+        console.log(response)
+        localStorage.setItem('token', response.data.payload)
+    })
+    .catch(error => console.log(error))
   };
 
   // validate whether value meets schema

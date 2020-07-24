@@ -41,7 +41,7 @@ export default function Register(props) {
   const postNewUser = newUser => {
     console.log("form submitted!");
     axios
-      .post("https://reqres.in/api/users", newUser)
+      .post('https://how-to-2-team-win.herokuapp.com/api/auth/login', newUser)
       .then((res) => {
         props.setUsers([...props.users, res.data]);
         console.log("form submitted success!");

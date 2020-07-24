@@ -1,4 +1,5 @@
 import { axiosWithAuth } from '../utils/axiosWithAuth';
+import axios from 'axios';
 
 export const getList = () => dispatch => {
     axiosWithAuth().get('/howtodos')
