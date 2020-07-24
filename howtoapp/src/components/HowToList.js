@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import HowToCard from './HowToCard';
+import { connect } from 'react-redux';
 import { getList } from '../actions/index';
 
 const HowToList = ({ getList, list, isEditing }) => {
@@ -22,4 +23,14 @@ const HowToList = ({ getList, list, isEditing }) => {
     )
 }
 
-export default HowToList;
+const mapStateToProps = state => {
+    return {
+        list: state.list,
+        isEditing: state.isEditing
+    }
+}
+
+export default connect(
+    mapStateToProps,
+    { getList }
+)(HowToList);
