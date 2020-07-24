@@ -1,7 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import HowToCard from './HowToCard';
+import { getList } from '../actions/index';
 
-const HowToList = ({ list, isEditing }) => {
+const HowToList = ({ getList, list, isEditing }) => {
+
+    useEffect(() => {
+        getList();
+    }, [getList])
+
     return(
         <div>
             {list.map(howto => (
@@ -9,7 +15,7 @@ const HowToList = ({ list, isEditing }) => {
             ))}
             {isEditing && (
                 <form>
-                    
+
                 </form>
             )}
         </div>

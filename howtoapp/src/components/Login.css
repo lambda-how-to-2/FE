@@ -1,10 +1,9 @@
 body {
-
   background-color: #F3ECC2;
   font-family: sans-serif;
+}
 
-
-.welcome {
+.welcome-back {
   font-size: 40px;
   letter-spacing: 0px;
   color: #005D6E;
@@ -12,7 +11,7 @@ body {
   margin-bottom: 50px;
 }
 
-/* form {
+form {
   width: 100vw;
   height: auto;
   display: flex;
@@ -25,7 +24,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-} */
+}
 
 Input {
   width: 322px;
@@ -42,9 +41,9 @@ Input {
   padding-left: 12px;
 }
 
-/* ::placeholder {
+::placeholder {
   color: #7E7E7E;
-} */
+}
 
 .already-member {
   width: 195px;
@@ -84,7 +83,7 @@ button:disabled {
   outline: none;
 }
 
-/* button:enabled {
+button:enabled {
   width: 322px;
   height: 59px;
   background: #1bc505 0% 0% no-repeat padding-box;
@@ -96,7 +95,7 @@ button:disabled {
   color: #ffffff;
   outline: none;
   cursor: pointer;
-} */
+}
 
 button:enabled:hover {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
