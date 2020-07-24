@@ -12,14 +12,10 @@ export const HowToReducer = (state = initialState, action) => {
                 isEditing: true,
                 cardToEdit: action.payload
             }
-        case "RETURN_CARD":
-            return {
+        case "GET_CARDS":
+            return{
                 ...state,
-                isEditing: false,
-                list: [
-                    ...state.list,
-                    
-                ]
+                list: action.payload
             }
         default:
             return state;
