@@ -11,12 +11,13 @@ body {
   margin-bottom: 50px;
 }
 
-form {
+.register-form {
   width: 100vw;
-  height: auto;
+  height: 75vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 
 .inputs {
@@ -70,7 +71,7 @@ Input {
   text-decoration: underline;
 }
 
-button:disabled {
+#registerBtn:disabled {
   width: 322px;
   height: 59px;
   background: #85EA9F 0% 0% no-repeat padding-box;
@@ -83,7 +84,7 @@ button:disabled {
   outline: none;
 }
 
-button:enabled {
+#registerBtn:enabled {
   width: 322px;
   height: 59px;
   background: #1bc505 0% 0% no-repeat padding-box;
@@ -97,7 +98,7 @@ button:enabled {
   cursor: pointer;
 }
 
-button:enabled:hover {
+#registerBtn:enabled:hover {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 

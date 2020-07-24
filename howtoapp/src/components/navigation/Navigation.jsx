@@ -13,8 +13,8 @@ function Navigation() {
                     <div className="menu">
                         <a href="/explorer">Features</a>
                         <a href="/explorer">Team</a>
-                        <a href="/explorer">login</a>
-                        <a href="/explorer">Sign Up</a>
+                        <a href="/register">Sign Up</a>
+                        <a href="/login">Login</a>
                     </div>
                 </nav>
             </div>
