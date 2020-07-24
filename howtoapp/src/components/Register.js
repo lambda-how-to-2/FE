@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import Input from './Input';
 import * as yup from 'yup';
 import axios from 'axios';
 import './Register.css';
 
-export default function Register() {
+export default function Register(props) {
   const defaultState = {
     "Full Name": "",
     "Email": "",
@@ -38,14 +38,31 @@ export default function Register() {
     formSchema.isValid(formState).then(valid => setButtonDisabled(!valid));
   }, [formState]);
 
+  const postNewUser = newUser => {
+    console.log("form submitted!");
+    axios
+      .post("https://reqres.in/api/users", newUser)
+      .then((res) => {
+        props.setUsers([...props.users, res.data]);
+        console.log("form submitted success!");
+      })
+      .catch((err) => console.log(err))
+      .finally(() => {
+        setFormState(defaultState);
+      });
+  };
+
   // onSubmit function
   const formSubmit = e => {
     e.preventDefault();
-    console.log("form submitted!");
-    axios
-      .post("https://reqres.in/api/users", formState)
-      .then(() => console.log("form submitted success!"))
-      .catch((err) => console.log(err));
+    const newUser = {
+      "Full Name": formState["Full Name"],
+      "Email": formState["Email"],
+      "Username": formState["Username"],
+      "Password": formState["Password"]
+    };
+    postNewUser(newUser);
+    console.log(newUser);
   };
 
   // validate whether value meets schema
@@ -73,11 +90,6 @@ export default function Register() {
     const value = e.target.value;
     setFormState({...formState, [e.target.name]: value});
     validateChange(e);
-  };
-
-  const errorMessages = e => {
-    // const errorMessage = props.errors[props.name];
-    // {errorMessage.length !== 0 && <p className="error">{errorMessage}</p>}
   };
 
   return (
