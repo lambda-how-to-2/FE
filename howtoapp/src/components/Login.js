@@ -3,8 +3,10 @@ import * as yup from 'yup';
 import axios from 'axios';
 import Input from './Input';
 import './Login.css';
+import {useHistory} from 'react-router-dom'
 
 export default function Login(props) {
+  const { push } = useHistory();
   const defaultState = {
     "Email": "",
     "Password": ""
@@ -36,6 +38,7 @@ export default function Login(props) {
     .then(response => {
         console.log(response)
         localStorage.setItem('token', response.data.payload)
+        push('/howtos')
     })
     .catch(error => console.log(error))
   };
