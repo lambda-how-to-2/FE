@@ -1,5 +1,5 @@
 body {
-  background-color: #F3ECC2;
+  /* background-color: #F3ECC2; */
 }
 
 .welcome {
@@ -82,7 +82,7 @@ button:disabled {
   outline: none;
 }
 
-button:enabled {
+/* button:enabled {
   width: 322px;
   height: 59px;
   background: #1bc505 0% 0% no-repeat padding-box;
@@ -94,7 +94,7 @@ button:enabled {
   color: #ffffff;
   outline: none;
   cursor: pointer;
-}
+} */
 
 button:enabled:hover {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
