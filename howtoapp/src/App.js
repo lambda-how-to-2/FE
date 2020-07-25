@@ -3,6 +3,8 @@ import { Route, Switch } from 'react-router-dom';
 
 import Register from './components/Register';
 import Login from './components/Login';
+import PrivateRoute from './components/PrivateRoute';
+import HowToList from './components/HowToList';
 import Profile from './components/Profile/Profile'
 import Home from './components/Home/home'
 import LoggedInNav from './components/navigation/LoggedInNav'
@@ -17,11 +19,13 @@ function App() {
   const [users, setUsers] = React.useState([]);
   const isLoggedIn = loggedIn ? <Navigation /> : <LoggedInNav />
 
-
   return (
     <>
       {isLoggedIn}
       <Switch>
+        <PrivateRoute exact path='/howtos' component={HowToList}/>
+        <Route path='/register' component={Register} users={users} setUsers={setUsers}/>
+        <Route path='/login' component={Login} users={users}/>
         <Route path='/profile' component={Profile} />
         <Route path='/register' component={Register} users={users} setUsers={setUsers}/>
         <Route path='/login' component={Login} users={users}/>
