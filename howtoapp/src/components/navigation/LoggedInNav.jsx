@@ -10,7 +10,7 @@ function LoggedInNav() {
     const SearchBoxVisible = () => {
         return location.pathname === '/profile' ?
             <div className="searchBox">
-                <inp ut type="text" id="searchField" placeholder="Seach" />
+                <input type="text" id="searchField" placeholder="Seach" />
                 <button className='searchBtn'><i class="fa fa-search"></i></button>
             </div>
             : ''
@@ -25,7 +25,7 @@ function LoggedInNav() {
                     <Link className="nav-logo-loggedIn" to="/">HOW2</Link>
                     <SearchBoxVisible />
                     <div className="menu">
-                        <NavLink to="/explore" className="menu-links" activeClassName="active">Explore</NavLink>
+                        <NavLink to="/howtos" className="menu-links" activeClassName="active">Explore</NavLink>
                         <NavLink to="/profile" className="menu-links" activeClassName="active">Profile</NavLink>
                         <NavLink to="/logout" className="menu-links" activeClassName="active">Logout</NavLink>
                     </div>
