@@ -1,6 +1,6 @@
 import React from 'react'
 import './navigation.style.css'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, NavLink, useLocation } from 'react-router-dom'
 
 
 function LoggedInNav() {
@@ -25,9 +25,9 @@ function LoggedInNav() {
                     <Link className="nav-logo-loggedIn" to="/">HOW2</Link>
                     <SearchBoxVisible />
                     <div className="menu">
-                        <Link to="/explore">Explore</Link>
-                        <Link to="/profile">Profile</Link>
-                        <Link to="/logout">Logout</Link>
+                        <NavLink to="/explore" className="menu-links" activeClassName="active">Explore</NavLink>
+                        <NavLink to="/profile" className="menu-links" activeClassName="active">Profile</NavLink>
+                        <NavLink to="/logout" className="menu-links" activeClassName="active">Logout</NavLink>
                     </div>
                 </nav>
             </div>

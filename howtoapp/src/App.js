@@ -27,8 +27,8 @@ function App() {
         <Route path='/register' component={Register} users={users} setUsers={setUsers}/>
         <Route path='/login' component={Login} users={users}/>
         <Route path='/profile' component={Profile} />
-        <Route path='/register' component={Register} users={users} setUsers={setUsers}/>
-        <Route path='/login' component={Login} users={users}/>
+        <Route path='/register' component={Register} users={users} setUsers={setUsers} />
+        <Route path='/login' component={Login} users={users} />
         <Route path='/' exact component={Home} />
         <Route path='*' exact component={Error404} />
       </Switch>

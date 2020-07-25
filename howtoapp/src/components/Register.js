@@ -68,7 +68,7 @@ export default function Register(props) {
   // onChange function
   const inputChange = e => {
     const value = e.target.value;
-    setFormState({...formState, [e.target.name]: value});
+    setFormState({ ...formState, [e.target.name]: value });
     validateChange(e);
   };
 
