@@ -1,6 +1,6 @@
 import React from 'react'
 import './navigation.style.css'
-import { Link } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom'
 
 
 
@@ -11,10 +11,14 @@ function Navigation() {
                 <nav>
                     <Link className="nav-logo-loggedIn" to="/">HOW2</Link>
                     <div className="menu">
-                        <Link to="/features">Features</Link>
-                        <Link to="/team">Team</Link>
-                        <Link to="/Login">login</Link>
-                        <Link to="signup">Sign Up</Link>
+                        <NavLink exact to="/features" className="menu-links" activeClassName="active">
+                            Features</NavLink>
+                        <NavLink exact to="/team" className="menu-links" activeClassName="active">
+                            Team</NavLink>
+                        <NavLink exact to="/Login" className="menu-links" activeClassName="active">
+                            Login</NavLink>
+                        <NavLink exact to="signup" ex className="menu-links" activeClassName="active">
+                            Sign Up</NavLink>
                     </div>
                 </nav>
             </div>
