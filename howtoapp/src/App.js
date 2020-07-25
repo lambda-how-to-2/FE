@@ -14,18 +14,19 @@ import Error404 from './components/Error404'
 
 function App() {
 
-  const [loggedIn, setLoggedIn] = React.useState(true)
+
   const [searchBox, setSearchBox] = React.useState(true)
   const [users, setUsers] = React.useState([]);
-  const isLoggedIn = loggedIn ? <Navigation /> : <LoggedInNav />
+  const isLoggedIn = !localStorage.getItem('token') ? <Navigation /> : <LoggedInNav />
+
 
   return (
     <>
       {isLoggedIn}
       <Switch>
-        <PrivateRoute exact path='/howtos' component={HowToList}/>
-        <Route path='/register' component={Register} users={users} setUsers={setUsers}/>
-        <Route path='/login' component={Login} users={users}/>
+        <PrivateRoute exact path='/howtos' component={HowToList} />
+        <Route path='/register' component={Register} users={users} setUsers={setUsers} />
+        <Route path='/login' component={Login} users={users} />
         <Route path='/profile' component={Profile} />
         <Route path='/register' component={Register} users={users} setUsers={setUsers} />
         <Route path='/login' component={Login} users={users} />
