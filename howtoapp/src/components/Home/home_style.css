@@ -86,7 +86,7 @@
     transform: scale(1.1); 
 }
 
- .icon {
+.icon-discover{
     background-image: url('./icon1.svg');
     background-position: center;
     background-repeat: no-repeat;
@@ -99,7 +99,8 @@
     align-items: center;
  }
 
- .icon2 {
+
+ .icon-create {
     background-image: url('./icon2.svg');
     background-position: center;
     background-repeat: no-repeat;
@@ -112,6 +113,13 @@
     align-items: center;
  }
 
+ .icon-discover h2 {
+    color: white;
+}
+
+.icon-create h2 {
+   color: white;
+}
  /* Media Queries  */
 
  @media only screen and (max-width: 681px) {
