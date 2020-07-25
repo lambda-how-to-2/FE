@@ -27,7 +27,7 @@ body {
   align-items: center;
 } */
 
-Input {
+/* Input {
   width: 322px;
   height: 59px;
   background-color: #FFFFFF;
@@ -40,7 +40,7 @@ Input {
   font-size: 21px;
   color: #3E3E3E;
   padding-left: 12px;
-}
+} */
 
 /* ::placeholder {
   color: #7E7E7E;
@@ -71,7 +71,7 @@ Input {
   text-decoration: underline;
 }
 
-button:disabled {
+/* button:disabled {
   width: 322px;
   height: 59px;
   background: #85EA9F 0% 0% no-repeat padding-box;
@@ -82,7 +82,7 @@ button:disabled {
   font-size: 21px;
   color: #ffffff;
   outline: none;
-}
+} */
 
 /* button:enabled {
   width: 322px;
@@ -98,9 +98,9 @@ button:disabled {
   cursor: pointer;
 } */
 
-button:enabled:hover {
+/* button:enabled:hover {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
+} */
 
 .errors {
   font-size: 14px;
