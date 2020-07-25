@@ -11,22 +11,22 @@ body {
   margin-bottom: 50px;
 }
 
-form {
+/* form {
   width: 100vw;
   height: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-}
+} */
 
-.inputs {
+/* .inputs {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
+} */
 
-Input {
+/* Input {
   width: 322px;
   height: 59px;
   background-color: #FFFFFF;
@@ -39,11 +39,11 @@ Input {
   font-size: 21px;
   color: #3E3E3E;
   padding-left: 12px;
-}
+} */
 
-::placeholder {
+/* ::placeholder {
   color: #7E7E7E;
-}
+} */
 
 .already-member {
   width: 195px;
@@ -70,7 +70,7 @@ Input {
   text-decoration: underline;
 }
 
-button:disabled {
+/* button:disabled {
   width: 322px;
   height: 59px;
   background: #85EA9F 0% 0% no-repeat padding-box;
@@ -99,7 +99,7 @@ button:enabled {
 
 button:enabled:hover {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
+} */
 
 .errors {
   font-size: 14px;
