@@ -7,7 +7,7 @@ const HowToList = ({ getList, list, isEditing }) => {
 
     useEffect(() => {
         getList();
-    }, [getList])
+    }, [])
 
     return(
         <div>

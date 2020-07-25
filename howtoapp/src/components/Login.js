@@ -4,12 +4,13 @@ import axios from 'axios';
 import Input from './Input';
 import './Login.css';
 import {useHistory} from 'react-router-dom'
+import { axiosWithAuth } from '../utils/axiosWithAuth';
 
 export default function Login(props) {
   const { push } = useHistory();
   const defaultState = {
-    "Email": "",
-    "Password": ""
+    "email": "",
+    "password": ""
   };
 
   const [formState, setFormState] = useState(defaultState);
@@ -18,11 +19,11 @@ export default function Login(props) {
 
   // formState schema
   const formSchema = yup.object().shape({
-    "Email": yup
+    "email": yup
       .string()
       .required("Please enter your email.")
       .email("This is not a valid email."),
-    "Password": yup
+    "password": yup
       .string()
       .required("Please enter your password.")
   });
@@ -34,11 +35,11 @@ export default function Login(props) {
   // onSubmit function
   const formSubmit = e => {
     e.preventDefault();
-    axios.post('https://how-to-2-team-win.herokuapp.com/api/auth/login', credentials)
+    axios.post('https://how-to-2-team-win.herokuapp.com/api/auth/login', formState)
     .then(response => {
-        console.log(response)
-        localStorage.setItem('token', response.data.payload)
-        push('/howtos')
+        console.log(response);
+        localStorage.setItem('token', response.data.token);
+        push('/howtos');
     })
     .catch(error => console.log(error))
   };
@@ -78,13 +79,13 @@ export default function Login(props) {
       <div className='inputs'>
         <Input
           type="text"
-          name="Email"
+          name="email"
           placeholder="Email"
           onChange={inputChange}
         />
         <Input
-          type="text"
-          name="Password"
+          type="password"
+          name="password"
           placeholder="Password"
           onChange={inputChange}
         />
