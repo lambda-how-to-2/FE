@@ -12,7 +12,9 @@ const HowToList = ({ getList, list, isEditing }) => {
     return(
         <div>
             {list.map(howto => (
-                <HowToCard HowTo={howto} />
+                <div key={howto.id}>
+                    <HowToCard HowTo={howto} />
+                </div>
             ))}
             {isEditing && (
                 <form>
