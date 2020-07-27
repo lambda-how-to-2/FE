@@ -1,5 +1,6 @@
-import React, { useEffect } from "react"
+import React, { useState } from "react"
 import axios from "axios"
+import * as yup from "yup"
 import "./profile_style.css"
 import ImageThumbnail from "./image-thumbnail.svg"
 import { useHistory } from "react-router-dom"
@@ -9,6 +10,8 @@ function Profile(props) {
   const [imagesFile, setImageFile] = React.useState("")
   const [imageName, setImageName] = React.useState("")
   const [howToInputValue, setHowToInputValue] = React.useState(initialState)
+  const [errors, setErrors] = useState(initialState)
+  const [buttonDisabled, setButtonDisabled] = useState(true)
 
   const history = useHistory()
 
@@ -18,6 +21,7 @@ function Profile(props) {
       [e.target.name]: e.target.value,
     }
     setHowToInputValue(inputValue)
+    validateChange(e)
   }
 
   const handleImageUpload = e => {
@@ -45,11 +49,54 @@ function Profile(props) {
 
   const handleFormSubmit = e => {
     e.preventDefault()
-    submitHowToImage()
+    axios({
+      method: "post",
+      url: "https://api.cloudinary.com/v1_1/brunopaula/image/upload",
+      data: imagesFile,
+    }).then(res => {
+      setHowToInputValue({
+        ...howToInputValue,
+        image: res.data.secure_url,
+      })
+    })
+    history.push("/")
+  }
+  console.log(howToInputValue)
+  const profileformSchema = yup.object().shape({
+    title: yup.string().required("Please enter a Title."),
+    image: yup.string().required("image"),
+    body: yup.string().required("A HowTo text is required."),
+  })
 
-    console.log("Data Sent", howToInputValue)
+  const validateChange = e => {
+    e.persist()
+    yup
+      .reach(profileformSchema, e.target.name)
+      .validate(e.target.value)
+      .then(valid =>
+        setErrors({
+          ...errors,
+          [e.target.name]: "",
+        })
+      )
+      .catch(error =>
+        setErrors({
+          ...errors,
+          [e.target.name]: error.errors[0],
+        })
+      )
   }
 
+  const ImageError = () => {
+    if (howToInputValue.title !== "" && howToInputValue.title !== "") {
+      console.log("error")
+    }
+  }
+  // DEBUG BLOCK >>>>>>>>>
+
+  console.log("erros", errors)
+
+  // >>>>>>>>>>>>>>>>>>>>>>>
   return (
     <div className='profile'>
       <form onSubmit={handleFormSubmit}>
@@ -59,14 +106,14 @@ function Profile(props) {
             name='title'
             id='profileTitle'
             type='text'
-            placeholder='Title'
+            placeholder={errors.title || "Title"}
             onChange={handleInputChanges}
           />
           <textarea
             className='profile-body'
             rows='10'
             cols='30'
-            placeholder='Body'
+            placeholder={errors.body || "Description"}
             name='body'
             onChange={handleInputChanges}
           />
@@ -79,6 +126,7 @@ function Profile(props) {
               <input
                 id='file-upload'
                 type='file'
+                name='image'
                 data-cloudinary-field='image_id'
                 data-form-data="{ 'transformation': {'crop':'limit','tags':'samples','width':3000,'height':2000}}"
                 onChange={handleImageUpload}
@@ -86,7 +134,7 @@ function Profile(props) {
               <button className='profile-post-btn'>Post</button>
             </div>
           </div>
-          <p className='profile-error'>if an error if an errorif an error </p>
+          <p className='profile-error'>{/* <ImageError /> */}</p>
         </div>
       </form>
     </div>
