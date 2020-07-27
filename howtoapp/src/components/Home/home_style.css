@@ -6,16 +6,22 @@
     background-color: var(--main-bg);
     height: 100vh;
     width: 100vw;
-    border: solid green;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
 }
 
 .btn-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: calc( 100% - 100px);
+    height:100%;
     width: 100%;
-   
+
+     
 }
 
 .wrapper {
@@ -26,9 +32,10 @@
     width: 50rem;
     height: 25rem;
     max-height: 100%;
+    
 }
 
-.wrapper h1 {
+.home-title {
     color: #B56C6C;
     font-size: 2.5rem;
 }
@@ -79,7 +86,7 @@
     transform: scale(1.1); 
 }
 
- .icon {
+.icon-discover{
     background-image: url('./icon1.svg');
     background-position: center;
     background-repeat: no-repeat;
@@ -92,7 +99,8 @@
     align-items: center;
  }
 
- .icon2 {
+
+ .icon-create {
     background-image: url('./icon2.svg');
     background-position: center;
     background-repeat: no-repeat;
@@ -105,16 +113,27 @@
     align-items: center;
  }
 
+ .icon-discover h2 {
+    color: white;
+}
+
+.icon-create h2 {
+   color: white;
+}
  /* Media Queries  */
 
  @media only screen and (max-width: 681px) {
  
+    .home-title {
+        font-size: 2.2rem;
+       margin-bottom: 1rem;
+    }
     .btn-container {
         display: flex;
         justify-content: center;
         align-items: center;
-        height: calc( 100% - 250px);
         width: 100%;
+       
        
     }
 

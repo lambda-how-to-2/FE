@@ -1,19 +1,38 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import HowToCard from './HowToCard';
+import { connect } from 'react-redux';
+import { getList } from '../actions/index';
 
-const HowToList = ({ list, isEditing }) => {
+const HowToList = ({ getList, list, isEditing }) => {
+
+    useEffect(() => {
+        getList();
+    }, [])
+
     return(
         <div>
             {list.map(howto => (
-                <HowToCard HowTo={howto} />
+                <div key={howto.id}>
+                    <HowToCard HowTo={howto} />
+                </div>
             ))}
             {isEditing && (
                 <form>
-                    
+
                 </form>
             )}
         </div>
     )
 }
 
-export default HowToList;
+const mapStateToProps = state => {
+    return {
+        list: state.list,
+        isEditing: state.isEditing
+    }
+}
+
+export default connect(
+    mapStateToProps,
+    { getList }
+)(HowToList);

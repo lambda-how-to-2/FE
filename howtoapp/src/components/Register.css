@@ -1,4 +1,5 @@
 body {
+
   background-color: #F3ECC2;
   font-family: sans-serif;
 }
@@ -25,9 +26,9 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
+} */
 
-Input {
+/* Input {
   width: 322px;
   height: 59px;
   background-color: #FFFFFF;
@@ -40,11 +41,11 @@ Input {
   font-size: 21px;
   color: #3E3E3E;
   padding-left: 12px;
-}
+} */
 
-::placeholder {
+/* ::placeholder {
   color: #7E7E7E;
-}
+} */
 
 .already-member {
   width: 195px;
@@ -82,7 +83,8 @@ Input {
   font-size: 21px;
   color: #ffffff;
   outline: none;
-}
+} */
+
 
 #registerBtn:enabled {
   width: 322px;
@@ -96,11 +98,12 @@ Input {
   color: #ffffff;
   outline: none;
   cursor: pointer;
-}
+} */
+
 
 #registerBtn:enabled:hover {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
+} */
 
 .errors {
   font-size: 14px;
