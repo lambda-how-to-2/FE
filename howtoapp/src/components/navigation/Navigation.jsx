@@ -11,6 +11,7 @@ function Navigation() {
                 <nav>
                     <Link className="nav-logo-loggedIn" to="/">HOW2</Link>
                     <div className="menu">
+
                         <NavLink exact to="/features" className="menu-links" activeClassName="active">
                             Features</NavLink>
                         <NavLink exact to="/team" className="menu-links" activeClassName="active">

@@ -72,7 +72,7 @@ export default function Login(props) {
   };
 
   return (
-    <form onSubmit={formSubmit}>
+    <form className="login-form" onSubmit={formSubmit}>
       <div className='welcome-back'>
         <h1>Welcome Back</h1>
       </div>
@@ -90,7 +90,7 @@ export default function Login(props) {
           onChange={inputChange}
         />
       </div>
-      <button disabled={buttonDisabled}>Log in</button>
+      <button id="loginBtn" disabled={buttonDisabled}>Log in</button>
       <div className='errors'>
         {Object.keys(errors).map((key, i) => {
           if (errors[key].length > 0) {

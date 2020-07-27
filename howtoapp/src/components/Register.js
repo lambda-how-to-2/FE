@@ -73,7 +73,7 @@ export default function Register(props) {
   };
 
   return (
-    <form onSubmit={formSubmit}>
+    <form className="register-form" onSubmit={formSubmit}>
       <div className="welcome">
         <h1>Welcome</h1>
       </div>
@@ -97,7 +97,7 @@ export default function Register(props) {
         <p>Already a member?</p>
         <Link to="/login">Log In</Link>
       </div>
-      <button disabled={buttonDisabled}>Sign up</button>
+      <button id="registerBtn" disabled={buttonDisabled}>Sign up</button>
       <div className='errors'>
         {Object.keys(errors).map((key, i) => {
           if (errors[key].length > 0) {
