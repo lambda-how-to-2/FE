@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import HowToCard from './HowToCard';
 import { connect } from 'react-redux';
 import { getList } from '../actions/index';
+import './HowToList.css';
 
 const HowToList = ({ getList, list, isEditing }) => {
 

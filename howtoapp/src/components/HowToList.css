@@ -1,0 +1,12 @@
+.howtocard{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    text-align: center;
+    margin: 5% 0% 5% 23%;
+    align-content: space-between;
+}
+
+.author{
+    margin-bottom: 2%;
+}
