@@ -6,11 +6,10 @@ import Login from './components/Login';
 import Navigation from './components/navigation/Navigation';
 import PrivateRoute from './components/PrivateRoute';
 import HowToList from './components/HowToList';
-import Profile from './components/Profile/Profile'
-import Home from './components/Home/home'
-import LoggedInNav from './components/navigation/LoggedInNav'
-import Navigation from './components/navigation/Navigation';
-import Error404 from './components/Error404'
+import Profile from './components/Profile/Profile';
+import Home from './components/Home/home';
+import LoggedInNav from './components/navigation/LoggedInNav';
+import Error404 from './components/Error404';
 
 function App() {
 
@@ -22,7 +21,6 @@ function App() {
 
   return (
     <div className="App">
-      <Navigation/>
     <>
       {isLoggedIn}
       <Switch>

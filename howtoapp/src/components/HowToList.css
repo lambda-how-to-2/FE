@@ -10,3 +10,7 @@
 .author{
     margin-bottom: 2%;
 }
+
+.delete{
+    color: red;
+}

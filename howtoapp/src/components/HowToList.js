@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import HowToCard from './HowToCard';
 import { connect } from 'react-redux';
-import { getList } from '../actions/index';
+import { getList, deleteCard } from '../actions/index';
 import './HowToList.css';
 
-const HowToList = ({ getList, list, isEditing }) => {
+const HowToList = ({ getList, list, isEditing, deleteCard }) => {
 
     useEffect(() => {
         getList();
@@ -14,7 +14,7 @@ const HowToList = ({ getList, list, isEditing }) => {
         <div>
             {list.map(howto => (
                 <div key={howto.id}>
-                    <HowToCard HowTo={howto} />
+                    <HowToCard HowTo={howto} deleteCard={deleteCard(howto.id)} />
                 </div>
             ))}
             {isEditing && (
@@ -35,5 +35,5 @@ const mapStateToProps = state => {
 
 export default connect(
     mapStateToProps,
-    { getList }
+    { getList, deleteCard }
 )(HowToList);
