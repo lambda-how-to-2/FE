@@ -11,12 +11,16 @@ const HowToList = ({ getList, list, isEditing, deleteCard, addCard }) => {
         getList();
     }, [])
 
+    const testDelete = (id) => {
+        console.log('clicked', id)
+    } 
+
     return(
         <div>
             <AddToList addCard={addCard} getList={getList} />
             {list.map(howto => (
                 <div key={howto.id}>
-                    <HowToCard HowTo={howto}  /> 
+                    <HowToCard HowTo={howto} deleteCard={testDelete(howto.id)} /> 
                     {/* deleteCard={deleteCard(howto.id)} */}
                 </div>
             ))}
