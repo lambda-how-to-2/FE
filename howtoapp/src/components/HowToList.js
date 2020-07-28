@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import HowToCard from './HowToCard';
 import { connect } from 'react-redux';
-import { getList, addCard } from '../actions/index';
+import { getList, addCard, deleteCard } from '../actions/index';
 import './HowToList.css';
 import AddToList from './AddtoList';
 
@@ -37,6 +37,7 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = { getList, addCard }
+// deleteCard
 
 export default connect(
     mapStateToProps,
