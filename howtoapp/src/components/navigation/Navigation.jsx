@@ -16,9 +16,9 @@ function Navigation() {
                             Features</NavLink>
                         <NavLink exact to="/team" className="menu-links" activeClassName="active">
                             Team</NavLink>
-                        <NavLink exact to="/Login" className="menu-links" activeClassName="active">
+                        <NavLink exact to="/login" className="menu-links" activeClassName="active">
                             Login</NavLink>
-                        <NavLink exact to="signup" ex className="menu-links" activeClassName="active">
+                        <NavLink exact to="/register" ex className="menu-links" activeClassName="active">
                             Sign Up</NavLink>
                     </div>
                 </nav>
