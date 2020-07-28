@@ -9,3 +9,21 @@ export const getList = () => dispatch => {
     })
     .catch(error => console.log(error))
 }
+
+export const deleteCard = (cardID) => dispatch => {
+    axiosWithAuth().delete(`/howtodos/${cardID}`)
+    .then(response => {
+        console.log(response)
+        dispatch({ type: "DELETE_CARD", payload: cardID })
+    })
+    .catch(error => console.log(error))
+}
+
+export const addCard = (newCard) => dispatch => {
+    axiosWithAuth().post('/howtodos', newCard)
+    .then(response => {
+        console.log(response);
+        dispatch({ type: "ADD_CARD", payload: newCard })
+    })
+    .catch(error => console.log(error))
+}
