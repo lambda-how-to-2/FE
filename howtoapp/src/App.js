@@ -1,28 +1,34 @@
 import React from 'react';
-import { Route, Switch, Link } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import Register from './components/Register';
 import Login from './components/Login';
+import Navigation from './components/navigation/Navigation';
+import PrivateRoute from './components/PrivateRoute';
 import HowToList from './components/HowToList';
-import './App.scss';
-import Create from './components/how_to_dos/Create';
-
+import Profile from './components/Profile/Profile'
+import Home from './components/Home/home'
+import LoggedInNav from './components/navigation/LoggedInNav'
+import Error404 from './components/Error404'
+import EditHowTo from './components/EditHowTo';
 function App() {
   const [searchBox, setSearchBox] = React.useState(true)
-
+  const [users, setUsers] = React.useState([]);
+  const isLoggedIn = !localStorage.getItem('token') ? <Navigation /> : <LoggedInNav />
   return (
     <div className="App">
-      <div className='header'>
-        <Link to="/register" className='hover-effect'>HowToDos</Link>
-        <Link className='create-howtodo' to="/howtodos/new">Create How Todo</Link>
-      </div>
+    <>
+      {isLoggedIn}
       <Switch>
-        <Route exact path='/howtodos/new' component={Create}/>
-        <Route path='/register' component={Register}/>
-        <Route path='/login' component={Login}/>
+        <PrivateRoute exact path='/howtos' component={HowToList} />
+        <Route path='/register' component={Register} users={users} setUsers={setUsers} />
+        <Route path='/login' component={Login} users={users} />
+        <Route path='/profile' component={Profile} />
+        <Route path='/' exact component={Home} />
+        <Route path='/:id/edit' exact component={EditHowTo} />
+        <Route path='*' exact component={Error404} />
       </Switch>
+    </>
     </div>
-
   );
 }
-
 export default App;

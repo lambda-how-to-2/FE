@@ -1,17 +1,25 @@
 import React, { useEffect } from 'react';
 import HowToCard from './HowToCard';
-import { getList } from '../actions/index';
+import { connect } from 'react-redux';
+import { getList, addCard, deleteCard } from '../actions/index';
+import './HowToList.css';
+import AddToList from './AddtoList';
 
-const HowToList = ({ getList, list, isEditing }) => {
+const HowToList = ({ getList, list, isEditing, deleteCard, addCard }) => {
 
     useEffect(() => {
         getList();
-    }, [getList])
+    }, [])
+
 
     return(
         <div>
+            <AddToList addCard={addCard} getList={getList} />
             {list.map(howto => (
-                <HowToCard HowTo={howto} />
+                <div key={howto.id}>
+                    <HowToCard HowTo={howto} deleteCard={deleteCard} /> 
+                    {/* deleteCard={deleteCard(howto.id)} */}
+                </div>
             ))}
             {isEditing && (
                 <form>
@@ -22,4 +30,17 @@ const HowToList = ({ getList, list, isEditing }) => {
     )
 }
 
-export default HowToList;
+const mapStateToProps = state => {
+    return {
+        list: state.list,
+        isEditing: state.isEditing
+    }
+}
+
+const mapDispatchToProps = { getList, addCard, deleteCard }
+// deleteCard
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(HowToList);

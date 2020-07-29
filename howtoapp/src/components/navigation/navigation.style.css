@@ -5,7 +5,7 @@
 
  .nav-wrapper {
     padding-top: 49px;
-   
+   z-index: 2;
 }
 
 nav {
@@ -15,17 +15,41 @@ nav {
     
 }
 
-.menu a {
-    padding-right: 40px;
-    font-size: 1.4rem;
+a {
+    margin: 0 20px;
+    font-size: 28px;
     text-decoration: none;
     color: var(--link);
     font-weight: 500;
     
 }
 
-.menu a:last-child {
-    padding: 0;
+.menu-links  {
+    margin: 0 20px;
+    font-size: 22px;
+    text-decoration: none;
+    color: var(--link);
+    font-weight: 500;
+}
+
+a:hover {
+    color: var(--link-hover);
+    font-weight: 800px;
+}
+
+.menu-links:visited  {
+    color: var(--link);
+}
+
+.active {
+    margin: 0 20px;
+    font-size: 22px;
+    color: var(--link-hover);
+    font-weight: 500;
+    padding-bottom: .5rem;
+    border-bottom: 3px solid #84ea9f;
+    transition: border-bottom .5s ease-in-out;
+    
 }
 
 .nav-logo{
@@ -41,14 +65,9 @@ nav {
     letter-spacing: 0px;
     color: #14B1AB;
     text-shadow: 0px 3px 3px #00000029;
-
+    text-decoration: none;
 }
 
-.menu a:hover {
-    text-decoration: underline;
-    color: var(--link-hover);
-    font-weight: 800px;
-}
 
 
 
@@ -73,11 +92,11 @@ nav {
     width: 400px;
     height: 53px;
     padding:  0 20px;
-   background-color: #3E3E3E;
-     display: flex;
+    background-color: #3E3E3E;
+    display: flex;
 }
 
-#search{
+#searchField{
     width: 100%;
     border: none;
     font-size: 21px;
@@ -101,6 +120,7 @@ nav {
     opacity: 0.6;
     
 }
+
 .searchBtn:focus {
     outline: none;
 }
@@ -130,10 +150,6 @@ nav {
         
     }
 
-    .menu a {
-        padding: 1rem;
-    }
-    
     .searchBox {
        margin-top: 1rem;
          margin-left: 0

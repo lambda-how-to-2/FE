@@ -7,10 +7,8 @@ import './Register.css';
 
 export default function Register(props) {
   const defaultState = {
-    "Full Name": "",
-    "Email": "",
-    "Username": "",
-    "Password": ""
+    "email": "",
+    "password": ""
   };
 
   const [formState, setFormState] = useState(defaultState);
@@ -19,16 +17,11 @@ export default function Register(props) {
 
   // formState schema
   const formSchema = yup.object().shape({
-    "Full Name": yup.string().required('Please enter your name.'),
-    "Email": yup
+    "email": yup
       .string()
       .required("Please enter your email.")
       .email("This is not a valid email."),
-    "Username": yup
-      .string()
-      .required("Please enter a username.")
-      .min(3, "Username must be at least 3 characters long."),
-    "Password": yup
+    "password": yup
       .string()
       .required("Please enter a password.")
       .min(8, "Password must be at least 8 characters long.")
@@ -38,31 +31,18 @@ export default function Register(props) {
     formSchema.isValid(formState).then(valid => setButtonDisabled(!valid));
   }, [formState]);
 
-  const postNewUser = newUser => {
-    console.log("form submitted!");
-    axios
-      .post("https://reqres.in/api/users", newUser)
-      .then((res) => {
-        props.setUsers([...props.users, res.data]);
-        console.log("form submitted success!");
-      })
-      .catch((err) => console.log(err))
-      .finally(() => {
-        setFormState(defaultState);
-      });
-  };
+
 
   // onSubmit function
   const formSubmit = e => {
     e.preventDefault();
-    const newUser = {
-      "Full Name": formState["Full Name"],
-      "Email": formState["Email"],
-      "Username": formState["Username"],
-      "Password": formState["Password"]
-    };
-    postNewUser(newUser);
-    console.log(newUser);
+    console.log(formState);
+    axios.post('https://how-to-2-team-win.herokuapp.com/api/auth/register', formState)
+      .then((res) => {
+        console.log("form submitted success!", res);
+      })
+      .catch((err) => console.log(err))
+      setFormState(defaultState)
   };
 
   // validate whether value meets schema
@@ -88,42 +68,28 @@ export default function Register(props) {
   // onChange function
   const inputChange = e => {
     const value = e.target.value;
-    setFormState({...formState, [e.target.name]: value});
+    setFormState({ ...formState, [e.target.name]: value });
     validateChange(e);
   };
 
   return (
-    <form onSubmit={formSubmit}>
+    <form className="register-form" onSubmit={formSubmit}>
       <div className="welcome">
         <h1>Welcome</h1>
       </div>
       <div className="inputs">
         <Input
           type="text"
-          name="Full Name"
+          name="email"
           onChange={inputChange}
-          value={formState["Full Name"]}
-          placeholder="Full Name"
-        />
-        <Input
-          type="text"
-          name="Email"
-          onChange={inputChange}
-          value={formState["Email"]}
+          value={formState["email"]}
           placeholder="Email"
         />
         <Input
-          type="text"
-          name="Username"
-          onChange={inputChange}
-          value={formState["Username"]}
-          placeholder="Username"
-        />
-        <Input
           type="password"
-          name="Password"
+          name="password"
           onChange={inputChange}
-          value={formState["Password"]}
+          value={formState["password"]}
           placeholder="Password"
         />
       </div>
@@ -131,7 +97,7 @@ export default function Register(props) {
         <p>Already a member?</p>
         <Link to="/login">Log In</Link>
       </div>
-      <button disabled={buttonDisabled}>Sign up</button>
+      <button id="registerBtn" disabled={buttonDisabled}>Sign up</button>
       <div className='errors'>
         {Object.keys(errors).map((key, i) => {
           if (errors[key].length > 0) {
