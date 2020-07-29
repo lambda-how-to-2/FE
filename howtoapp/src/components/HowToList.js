@@ -11,16 +11,13 @@ const HowToList = ({ getList, list, isEditing, deleteCard, addCard }) => {
         getList();
     }, [])
 
-    const testDelete = (id) => {
-        console.log('clicked', id)
-    } 
 
     return(
         <div>
             <AddToList addCard={addCard} getList={getList} />
             {list.map(howto => (
                 <div key={howto.id}>
-                    <HowToCard HowTo={howto} deleteCard={testDelete(howto.id)} /> 
+                    <HowToCard HowTo={howto} deleteCard={deleteCard} /> 
                     {/* deleteCard={deleteCard(howto.id)} */}
                 </div>
             ))}
@@ -40,7 +37,7 @@ const mapStateToProps = state => {
     }
 }
 
-const mapDispatchToProps = { getList, addCard }
+const mapDispatchToProps = { getList, addCard, deleteCard }
 // deleteCard
 
 export default connect(
