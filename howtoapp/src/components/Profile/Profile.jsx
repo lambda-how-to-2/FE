@@ -1,17 +1,43 @@
 import React, { useState } from "react"
 import axios from "axios"
 import * as yup from "yup"
+import ImageModal from "./ImageModal"
 import "./profile_style.css"
 import ImageThumbnail from "./image-thumbnail.svg"
 import { useHistory } from "react-router-dom"
+import Spinner from "react-bootstrap/Spinner"
+import Alert from "react-bootstrap/Alert"
 
 function Profile(props) {
-  const initialState = { title: "", body: "", image: "" }
-  const [imagesFile, setImageFile] = React.useState("")
+  const initialState = {
+    title: "",
+    author: "Bruno Paula",
+    description: "",
+    image: "",
+  }
+
   const [imageName, setImageName] = React.useState("")
+  const [file, setFile] = React.useState("")
+  const [imageData, setImageData] = React.useState("")
   const [howToInputValue, setHowToInputValue] = React.useState(initialState)
   const [errors, setErrors] = useState(initialState)
   const [buttonDisabled, setButtonDisabled] = useState(true)
+  const [HandleFormData, handleFormData] = useState({})
+  const [loading, setLoading] = useState(false)
+
+  //   Modal
+  const [show, setShow] = useState(false)
+
+  const handleShow = () => {
+    setShow(true)
+  }
+
+  const handleClose = () => {
+    setShow(false)
+    setFile("")
+    setImageName("")
+    setLoading(false)
+  }
 
   const history = useHistory()
 
@@ -25,47 +51,66 @@ function Profile(props) {
   }
 
   const handleImageUpload = e => {
+    setLoading(true)
+    setFile(URL.createObjectURL(e.target.files[0]))
     const file = e.target.files
-    const data = new FormData()
-    data.append("file", file[0])
-    data.append("upload_preset", "howtos")
-
     setImageName(file[0].name)
-    setImageFile(data)
+    handleFormData(file)
+    handleShow()
+    e.target.files = null
   }
 
-  const submitHowToImage = () => {
-    axios({
-      method: "post",
-      url: "https://api.cloudinary.com/v1_1/brunopaula/image/upload",
-      data: imagesFile,
-    }).then(res => {
-      setHowToInputValue({
-        ...howToInputValue,
-        image: res.data.secure_url,
+  const saveImage = () => {
+    const data = new FormData()
+    data.append("file", HandleFormData[0])
+    data.append("upload_preset", "howtos")
+
+    axios
+      .post("https://api.cloudinary.com/v1_1/brunopaula/image/upload", data)
+      .then(res => {
+        setHowToInputValue({
+          ...howToInputValue,
+          image: res.data.secure_url,
+        })
+        setImageData(res.data)
+        setShow(false)
+        setLoading(false)
       })
+  }
+
+  console.log("yet", howToInputValue)
+
+  const addNewPost = () => {
+    const config = {
+      method: "post",
+      url: "https://how-to-2-team-win.herokuapp.com/api/howtodos",
+      headers: {
+        Authorization:
+          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImVtYWlsIjoiYnJ1bm9wYXVsYUB0ZXN0LmNvbSIsInVzZXJSb2xlIjoibm9ybWFsIiwiaWF0IjoxNTk1OTgwMTM4fQ.kM88zSrKtQEsnEepDVzpUTgL8456xc5LnBcfa3vojws",
+        "Content-Type": "application/json",
+      },
+      data: {
+        title: howToInputValue.title,
+        author: howToInputValue.author,
+        description: howToInputValue.description,
+        image_url: howToInputValue.image,
+      },
+    }
+
+    axios(config).then(res => {
+      setLoading(false)
     })
   }
 
   const handleFormSubmit = e => {
     e.preventDefault()
-    axios({
-      method: "post",
-      url: "https://api.cloudinary.com/v1_1/brunopaula/image/upload",
-      data: imagesFile,
-    }).then(res => {
-      setHowToInputValue({
-        ...howToInputValue,
-        image: res.data.secure_url,
-      })
-    })
+    addNewPost()
     history.push("/")
   }
-  console.log(howToInputValue)
+
   const profileformSchema = yup.object().shape({
-    title: yup.string().required("Please enter a Title."),
-    image: yup.string().required("image"),
-    body: yup.string().required("A HowTo text is required."),
+    title: yup.string().required("Title is required"),
+    description: yup.string().required("A HowTo Description is required."),
   })
 
   const validateChange = e => {
@@ -87,16 +132,14 @@ function Profile(props) {
       )
   }
 
-  const ImageError = () => {
-    if (howToInputValue.title !== "" && howToInputValue.title !== "") {
-      console.log("error")
-    }
+  const AlertSaved = () => {
+    return imageName ? (
+      <Alert variant='dark'>{`${imageName} has been saved!`}</Alert>
+    ) : (
+      ""
+    )
   }
-  // DEBUG BLOCK >>>>>>>>>
 
-  console.log("erros", errors)
-
-  // >>>>>>>>>>>>>>>>>>>>>>>
   return (
     <div className='profile'>
       <form onSubmit={handleFormSubmit}>
@@ -109,20 +152,28 @@ function Profile(props) {
             placeholder={errors.title || "Title"}
             onChange={handleInputChanges}
           />
+
           <textarea
             className='profile-body'
             rows='10'
             cols='30'
-            placeholder={errors.body || "Description"}
-            name='body'
+            placeholder={errors.description || "Description"}
+            name='description'
             onChange={handleInputChanges}
           />
+
+          <AlertSaved />
+
           <div className='formBottomBtn'>
             <div className='upload-btn'>
-              <label htmlFor='file-upload' className='file-upload-circle'>
-                <img src={ImageThumbnail} alt='upload icon' />
-              </label>
-              <p className='image-name'>{imageName}</p>
+              {loading ? (
+                <Spinner animation='border' variant='success' />
+              ) : (
+                <label htmlFor='file-upload' className='file-upload-circle'>
+                  <img src={ImageThumbnail} alt='upload icon' />
+                </label>
+              )}
+
               <input
                 id='file-upload'
                 type='file'
@@ -134,9 +185,18 @@ function Profile(props) {
               <button className='profile-post-btn'>Post</button>
             </div>
           </div>
-          <p className='profile-error'>{/* <ImageError /> */}</p>
         </div>
       </form>
+
+      <ImageModal
+        show={show}
+        setShow={setShow}
+        handleClose={handleClose}
+        handleShow={handleShow}
+        saveImage={saveImage}
+        file={file}
+        data={imageData}
+      />
     </div>
   )
 }
