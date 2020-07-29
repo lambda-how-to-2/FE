@@ -3,7 +3,7 @@ import * as yup from 'yup';
 import axios from 'axios';
 import Input from './Input';
 import './Login.css';
-import {useHistory} from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import { axiosWithAuth } from '../utils/axiosWithAuth';
 
 export default function Login(props) {

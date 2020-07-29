@@ -27,3 +27,8 @@ export const addCard = (newCard) => dispatch => {
     })
     .catch(error => console.log(error))
 }
+
+export const editCard = (cardId) => dispatch => {
+    dispatch({ type: "EDIT_CARD", payload: cardId});
+    console.log(cardId);
+}
