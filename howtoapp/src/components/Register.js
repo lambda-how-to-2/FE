@@ -83,7 +83,7 @@ export default function Register(props) {
           name="email"
           onChange={inputChange}
           value={formState["email"]}
-          placeholder="email"
+          placeholder="Email"
         />
         <Input
           type="password"

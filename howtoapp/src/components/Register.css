@@ -20,15 +20,11 @@ body {
   justify-content: center;
 }
 
-/* .inputs {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-} */
-*/
 
-/* Input {
+
+
+
+Input {
   width: 322px;
   height: 59px;
   background-color: #FFFFFF;
@@ -41,11 +37,11 @@ body {
   font-size: 21px;
   color: #3E3E3E;
   padding-left: 12px;
-} */
+}
 
-/* ::placeholder {
+::placeholder {
   color: #7E7E7E;
-} */
+}
 
 .already-member {
   width: 195px;
@@ -54,6 +50,7 @@ body {
   align-items: center;
   justify-content: space-between;
   margin-top: 3px;
+  white-space: nowrap;
 }
 
 .already-member p {
@@ -84,7 +81,10 @@ body {
   color: #ffffff;
   outline: none;
 }
-*/ #registerBtn:enabled {
+
+
+#registerBtn:enabled {
+
   width: 322px;
   height: 59px;
   background: #1bc505 0% 0% no-repeat padding-box;
@@ -97,11 +97,15 @@ body {
   outline: none;
   cursor: pointer;
 }
-*/ #registerBtn:enabled:hover {
+
+
+
+#registerBtn:enabled:hover {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-*/ .errors {
-  font-size: 14px;
+
+.errors {
+font-size: 14px;
   color: #ff2626;
   margin-top: 25px;
   line-height: 25px;

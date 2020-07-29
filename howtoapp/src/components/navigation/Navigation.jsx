@@ -3,6 +3,7 @@ import "./navigation.style.css"
 import { NavLink, Link } from "react-router-dom"
 
 function Navigation() {
+
   return (
     <>
       <div className='nav-wrapper'>
@@ -48,6 +49,8 @@ function Navigation() {
       </div>
     </>
   )
+
+
 }
 
 export default Navigation
