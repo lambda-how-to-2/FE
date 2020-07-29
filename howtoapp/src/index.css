@@ -1,26 +1,27 @@
+/* React BootStrap */
+@import "../node_modules//bootstrap//dist/css/bootstrap.min.css";
+
 :root {
   /* Colors */
-  --main-bg:#F3ECC2;
-  --link: #14B1AB;
-  --main-text: #3E3E3E;
-  --subtitle: #FF7777;
-  --logo: #005D6E;
-  --dark-bg: #3E3E3E;
-
+  --main-bg: #f3ecc2;
+  --link: #14b1ab;
+  --main-text: #3e3e3e;
+  --subtitle: #ff7777;
+  --logo: #005d6e;
+  --dark-bg: #3e3e3e;
 
   /* Hover */
-  --link-hover: #005D6E;
+  --link-hover: #005d6e;
 }
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  
 }
 
 a {
   text-decoration: none;
-  color: inherit; 
+  color: inherit;
 }
 
 body {
@@ -28,31 +29,28 @@ body {
   /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif; */
-    font: Arial, sans-serif;
+  font: Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
-
 .error404 {
-  
-    background-color: var(--main-bg);
-    height: 100vh;
-    width: 100vw;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: -1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-
+  background-color: var(--main-bg);
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
