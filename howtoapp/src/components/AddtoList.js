@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './HowToList.css';
 
 const AddToList = (props) => {
 
@@ -27,8 +28,8 @@ const AddToList = (props) => {
     }
 
     return(
-        <form onSubmit={handleSubmit}>
-            Add Your Howto!
+        <form onSubmit={handleSubmit} className='addForm'>
+            <p>Add Your Howto!</p>
             <label htmlFor='title'>Title: </label>
             <input type='text' name='title' value={formState.title} onChange={changeHandler} />
             <label htmlFor='author'>Author: </label>

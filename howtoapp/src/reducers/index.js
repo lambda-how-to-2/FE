@@ -1,7 +1,8 @@
 const initialState = {
     isEditing: false,
     list: [],
-    cardToEdit: {}
+    cardToEdit: {},
+    isLoggedIn: false
 }
 
 export const HowToReducer = (state = initialState, action) => {
@@ -21,6 +22,12 @@ export const HowToReducer = (state = initialState, action) => {
             return{
                 ...state,
                 list: state.list.filter(card => card.id !== action.payload)
+            }
+        case "UPDATE_CARD":
+            return{
+                ...state,
+                isEditing: false,
+                cardToEdit: {}
             }
         case "ADD_CARD":
             return{
