@@ -14,3 +14,8 @@
 .delete{
     color: red;
 }
+.addForm{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
