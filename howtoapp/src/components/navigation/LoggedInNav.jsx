@@ -6,7 +6,7 @@ function LoggedInNav() {
   const location = useLocation()
 
   const SearchBoxVisible = () => {
-    return location.pathname === "/profile" ? (
+    return location.pathname === "/howtos" ? (
       <div className='searchBox'>
         <input type='text' id='searchField' placeholder='Seach' />
         <button className='searchBtn'>

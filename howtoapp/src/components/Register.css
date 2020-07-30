@@ -20,14 +20,11 @@ body {
   justify-content: center;
 }
 
-
-
-
-
-Input {
+/* Noah Please rename this class.. This is styling all Inputs on the application */
+/* Input {
   width: 322px;
   height: 59px;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   border: none;
   border-radius: 5px;
   opacity: 1;
@@ -35,13 +32,13 @@ Input {
   display: flex;
   outline: none;
   font-size: 21px;
-  color: #3E3E3E;
+  color: #3e3e3e;
   padding-left: 12px;
-}
+} */
 
-::placeholder {
+/* ::placeholder {
   color: #7E7E7E;
-}
+} */
 
 .already-member {
   width: 195px;
@@ -82,9 +79,7 @@ Input {
   outline: none;
 }
 
-
 #registerBtn:enabled {
-
   width: 322px;
   height: 59px;
   background: #1bc505 0% 0% no-repeat padding-box;
@@ -98,14 +93,12 @@ Input {
   cursor: pointer;
 }
 
-
-
 #registerBtn:enabled:hover {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .errors {
-font-size: 14px;
+  font-size: 14px;
   color: #ff2626;
   margin-top: 25px;
   line-height: 25px;

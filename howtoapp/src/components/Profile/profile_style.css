@@ -34,10 +34,15 @@
   padding: 1rem;
 }
 
+.profile-title-error {
+  border: solid red;
+}
+
 .profile-title::placeholder {
   color: #7e7e7e;
   font-size: 1.8rem;
 }
+
 .profile-title:focus {
   border: 1px solid #14b1ab;
   opacity: 1;

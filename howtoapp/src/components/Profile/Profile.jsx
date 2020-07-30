@@ -78,15 +78,13 @@ function Profile(props) {
       })
   }
 
-  console.log("yet", howToInputValue)
-
+  const token = localStorage.getItem("token")
   const addNewPost = () => {
     const config = {
       method: "post",
       url: "https://how-to-2-team-win.herokuapp.com/api/howtodos",
       headers: {
-        Authorization:
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImVtYWlsIjoiYnJ1bm9wYXVsYUB0ZXN0LmNvbSIsInVzZXJSb2xlIjoibm9ybWFsIiwiaWF0IjoxNTk1OTgwMTM4fQ.kM88zSrKtQEsnEepDVzpUTgL8456xc5LnBcfa3vojws",
+        Authorization: token,
         "Content-Type": "application/json",
       },
       data: {
