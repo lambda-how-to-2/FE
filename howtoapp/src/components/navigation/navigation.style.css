@@ -1,158 +1,147 @@
 @import url("https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
-/*********************//*********************
+/*********************/ /*********************
 *               Main Navigation 
  ********************************************/
 
- .nav-wrapper {
-    padding-top: 49px;
-   z-index: 2;
+.nav-wrapper {
+  padding-top: 49px;
+  z-index: 2;
 }
 
 nav {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 a {
-    margin: 0 20px;
-    font-size: 28px;
-    text-decoration: none;
-    color: var(--link);
-    font-weight: 500;
-    
+  margin: 0 20px;
+  font-size: 28px;
+  text-decoration: none;
+  color: var(--link);
+  font-weight: 500;
 }
 
-.menu-links  {
-    margin: 0 20px;
-    font-size: 22px;
-    text-decoration: none;
-    color: var(--link);
-    font-weight: 500;
+.menu-links {
+  margin: 0 20px;
+  font-size: 22px;
+  text-decoration: none;
+  color: var(--link);
+  font-weight: 500;
 }
 
-a:hover {
-    color: var(--link-hover);
-    font-weight: 800px;
-}
+/* a:hover {
+  color: var(--link-hover);
+  font-weight: 800px;
+} */
 
-.menu-links:visited  {
-    color: var(--link);
+.menu-links:visited {
+  color: var(--link);
 }
 
 .active {
-    margin: 0 20px;
-    font-size: 22px;
-    color: var(--link-hover);
-    font-weight: 500;
-    padding-bottom: .5rem;
-    border-bottom: 3px solid #84ea9f;
-    transition: border-bottom .5s ease-in-out;
-    
+  margin: 0 20px;
+  font-size: 22px;
+  color: var(--link-hover);
+  font-weight: 500;
+  padding-bottom: 0.5rem;
+  border-bottom: 3px solid #84ea9f;
+  transition: border-bottom 0.5s ease-in-out;
 }
 
-.nav-logo{
-    font: Bold 40px/45px Arial;
-    letter-spacing: 0px;
-    color: var(--logo);
-    text-shadow: 0px 3px 3px #00000029;
-
+.nav-logo {
+  font: Bold 40px/45px Arial;
+  letter-spacing: 0px;
+  color: var(--logo);
+  text-shadow: 0px 3px 3px #00000029;
 }
 
-.nav-logo-loggedIn{
-    font: Bold 40px/45px Arial;
-    letter-spacing: 0px;
-    color: #14B1AB;
-    text-shadow: 0px 3px 3px #00000029;
-    text-decoration: none;
+.nav-logo-loggedIn {
+  font: Bold 40px/45px Arial;
+  letter-spacing: 0px;
+  color: #14b1ab;
+  text-shadow: 0px 3px 3px #00000029;
+  text-decoration: none;
 }
 
-
-
-
-/*********************//*********************
+/*********************/ /*********************
 *               Logged In Navigation 
  ********************************************/
 
 .searchBox {
-    border: 2px solid #ffff;
-    border-radius: 27px;
-    height: 53px;
-    padding:  0 20px;
-    background-color: white;
-    display: flex;
-    justify-content: center;
-    margin-left: 8rem; 
+  border: 2px solid #ffff;
+  border-radius: 27px;
+  height: 53px;
+  padding: 0 20px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  margin-left: 8rem;
 }
 
 .searchBoxDark {
-    border: 2px solid #ffff;
-    border-radius: 27px;
-    width: 400px;
-    height: 53px;
-    padding:  0 20px;
-    background-color: #3E3E3E;
-    display: flex;
+  border: 2px solid #ffff;
+  border-radius: 27px;
+  width: 400px;
+  height: 53px;
+  padding: 0 20px;
+  background-color: #3e3e3e;
+  display: flex;
 }
 
-#searchField{
-    width: 100%;
-    border: none;
-    font-size: 21px;
-    outline: none;
-    color: var(--main-text)
+#searchField {
+  width: 100%;
+  border: none;
+  font-size: 21px;
+  outline: none;
+  color: var(--main-text);
 }
 
-#searchDark{
-    width: 100%;
-    border: none;
-    font-size: 21px;
-    outline: none;
-    color: #ffff;
-    background-color: #3E3E3E;
+#searchDark {
+  width: 100%;
+  border: none;
+  font-size: 21px;
+  outline: none;
+  color: #ffff;
+  background-color: #3e3e3e;
 }
 
 .searchBtn {
-    border: none;
-    background: transparent;
-    font-size: 20px;
-    opacity: 0.6;
-    
+  border: none;
+  background: transparent;
+  font-size: 20px;
+  opacity: 0.6;
 }
 
 .searchBtn:focus {
-    outline: none;
+  outline: none;
 }
 
 .searchBtn:hover {
-    color:#ffff;
+  color: #ffff;
 }
 
-
 .hr-loggedIn {
-    margin-top: 1.5rem;
-    background: silver 0% 0% no-repeat padding-box;
-    opacity: 1;
+  margin-top: 1.5rem;
+  background: silver 0% 0% no-repeat padding-box;
+  opacity: 1;
 }
 
 /* Media Queries  */
 
 @media only screen and (max-width: 757px) {
-    nav {
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
-    
-    .menu {
-        padding-top: 1rem;
-        
-    }
-
-    .searchBox {
-       margin-top: 1rem;
-         margin-left: 0
-    }
+  nav {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
-  
+
+  .menu {
+    padding-top: 1rem;
+  }
+
+  .searchBox {
+    margin-top: 1rem;
+    margin-left: 0;
+  }
+}

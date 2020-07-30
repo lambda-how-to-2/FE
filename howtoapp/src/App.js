@@ -1,4 +1,3 @@
-
 import React from "react"
 import { Route, Switch } from "react-router-dom"
 import Register from "./components/Register"
@@ -12,19 +11,16 @@ import LoggedInNav from "./components/navigation/LoggedInNav"
 import Error404 from "./components/Error404"
 import Signup from "./components/Register"
 
-
-
 function App() {
   const [searchBox, setSearchBox] = React.useState(true)
   const [users, setUsers] = React.useState([])
-  const isLoggedIn = !localStorage.getItem("token") ? (
-    <Navigation />
-  ) : (
+  const isLoggedIn = localStorage.getItem("token") ? (
     <LoggedInNav />
+  ) : (
+    <Navigation />
   )
 
   return (
-
     <div className='App'>
       <>
         {isLoggedIn}
@@ -37,7 +33,8 @@ function App() {
             setUsers={setUsers}
           />
           <Route path='/login' component={Login} users={users} />
-          <Route path='/profile' component={Profile} />
+          {/* <Route path='/profile' component={Profile} /> */}
+          <PrivateRoute path='/profile' component={Profile} />
           <Route
             path='/register'
             component={Register}
@@ -52,7 +49,6 @@ function App() {
       </>
     </div>
   )
-
 }
 
 export default App
