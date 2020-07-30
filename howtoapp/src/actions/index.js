@@ -32,3 +32,13 @@ export const editCard = (cardId) => dispatch => {
     dispatch({ type: "EDIT_CARD", payload: cardId});
     console.log(cardId);
 }
+
+export const updateCard = (object) => dispatch => {
+    axiosWithAuth().put(`/howtodos/${object.id}`, object)
+    .then(response => {
+        console.log(response);
+        console.log(object)
+        dispatch({ type: "UPDATE_CARD" })
+    })
+    .catch(error => console.log(error))
+}

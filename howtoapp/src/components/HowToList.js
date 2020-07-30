@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import HowToCard from './HowToCard';
 import { connect } from 'react-redux';
-import { getList, addCard, deleteCard, editCard } from '../actions/index';
+import { getList, addCard, deleteCard, editCard, updateCard } from '../actions/index';
 import './HowToList.css';
 import AddToList from './AddtoList';
 
-const HowToList = ({ getList, list, isEditing, deleteCard, addCard, editCard, cardToEdit }) => {
+const HowToList = ({ getList, list, isEditing, deleteCard, addCard, editCard, cardToEdit, updateCard }) => {
 
     const [editState, setEditState] = useState({
         title: '',
@@ -27,6 +27,13 @@ const HowToList = ({ getList, list, isEditing, deleteCard, addCard, editCard, ca
             ...editState,
             [event.target.name]: event.target.value
         })
+        console.log(editState);
+    }
+
+    const submitHandler = event => {
+        event.preventDefault();
+        updateCard(editState);
+        getList();
     }
 
     return(
@@ -39,7 +46,7 @@ const HowToList = ({ getList, list, isEditing, deleteCard, addCard, editCard, ca
             ))}
              
              {isEditing && (
-                        <form>
+                        <form onSubmit={submitHandler}>
                             Edit
                             <label htmlFor='title'>Title: </label>
                             <input type='text' name='title' value={editState.title} onChange={changeHandler}/>
@@ -47,6 +54,7 @@ const HowToList = ({ getList, list, isEditing, deleteCard, addCard, editCard, ca
                             <input type='text' name='author' value={editState.author} onChange={changeHandler}/>
                             <label htmlFor='description'>HowTo</label>
                             <textarea name='description' value={editState.description} onChange={changeHandler}/>
+                            <button type='submit'>Update</button>
                         </form>
             )}
             <button onClick={() => console.log(cardToEdit)}>Test</button>
@@ -62,7 +70,7 @@ const mapStateToProps = state => {
     }
 }
 
-const mapDispatchToProps = { getList, addCard, deleteCard, editCard }
+const mapDispatchToProps = { getList, addCard, deleteCard, editCard, updateCard }
 // deleteCard
 
 export default connect(
