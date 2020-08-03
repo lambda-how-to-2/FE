@@ -7,10 +7,10 @@ import PrivateRoute from "./components/PrivateRoute"
 import HowToList from "./components/HowToList"
 import Profile from "./components/Profile/Profile"
 import Home from "./components/Home/home"
+import EditHowTo from './components/EditHowTo';
 import LoggedInNav from "./components/navigation/LoggedInNav"
 import Error404 from "./components/Error404"
 import Signup from "./components/Register"
-
 function App() {
   const [searchBox, setSearchBox] = React.useState(true)
   const [users, setUsers] = React.useState([])
@@ -19,7 +19,6 @@ function App() {
   ) : (
     <Navigation />
   )
-
   return (
     <div className='App'>
       <>
@@ -43,6 +42,7 @@ function App() {
           />
           <Route path='/signup' component={Signup} />
           <Route path='/login' component={Login} users={users} />
+          <Route path='/:id/edit' exact component={EditHowTo} />
           <Route path='/' exact component={Home} />
           <Route path='*' exact component={Error404} />
         </Switch>
@@ -50,5 +50,4 @@ function App() {
     </div>
   )
 }
-
-export default App
+export default App;
